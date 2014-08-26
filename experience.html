@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Web前端开发工程师-杨云梅-经验积累</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/skin1.css" id="skin">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+	<link rel="stylesheet" type="text/css" href="css/experience.css">
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/fisheye-iutil.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/correctPNG.js"></script>
+</head>
+<body>
+<div id="top">
+    <div >
+        <a href="index.html"><img id="logo" src="images/logo.jpg"></a>
+    </div>
+    <div class="right-sidebar">
+        <ul id="choose-skin">
+            <li data-theme="skin1" class="skin1 cur">skin1</li>
+            <li data-theme="skin2" class="skin2">skin2</li>
+            <li data-theme="skin3" class="skin3">skin3</li>
+            <li data-theme="skin4" class="skin4">skin4</li>
+            <li data-theme="skin5" class="skin5">skin5</li>
+        </ul>
+    </div>
+    <div id="nav">
+        <ul class="nav-container">
+            <li><a href="resume.html"><span>我的简历</span><img src="images/nav/resume_nav.png" alt="我的简历" /></a></li>
+            <li><a href="experience.html"><span>我的经验</span><img src="images/nav/notes_nav.png" alt="我的经验" /></a></li>
+            <li><a href="works.html"><span>我的作品</span><img src="images/nav/works_nav.png" alt="我的作品" /></a></li>
+            <li><a href="books.html"><span>我的书架</span><img src="images/nav/book_nav.png" alt="我的书架" /></a></li>
+			<li><a href="pictures.html"><span>我的相册</span><img src="images/nav/picture_nav.png" alt="我的相册" /></a></li>
+            <li><a href="contact.html"><span>与我联系</span><img src="images/nav/contact_nav.png" alt="与我联系" /></a></li>
+        </ul>
+    </div>
+</div>
+<a id="to-top" href="#top" style="display: none; "></a>
+<div id="main">
+    <h2>经验积累之&nbsp;<strong></strong></h2>
+    <ul id="experience-nav">
+        <li id="JavaScript"><a>JavaScript</a></li>
+        <li id="CSS"><a>CSS&nbsp;技巧</a></li>
+        <li id="web"><a>web优化</a></li>
+        <li id="eventKeycode"><a>event.keycode值大全</a></li>
+    </ul>
+    <p>提示：点击红色标题，可隐藏/显示其对应内容</p>
+    <div id="experience" class="animated fadeInRight">
+    <dl id="content-JavaScript">
+        <dt><strong>谨记对象非空特性</strong></dt>
+        <dd>
+            <p>JavaScript从来没有真正的非空对象，因为每个对象都可以从原型链中取得成员，这种机制有时候会带来麻烦</p>
+            <p>例如，在编写统计一段文本中每个单词的出现次数的代码时，如下设计：</p>
+            <p>var i,word;</p>
+            <p>var text="this is a code  for computing words' count,constructor.";</p>
+            <p>var words=text.toLowerCase().split(/[\s,.]+/);</p>
+            <p>var count={};</p>
+            <p>for(i=0;i<words.length;i+=1){</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;word=words[i];</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;if(count[word]){</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count[word]+=1;</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;}else{</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count[word]=1;</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+            <p>}</p>
+            <p>在执行结果中，所有单词数目均正确，除了count.constructor。</p>
+            <p>这是因为在主流浏览器上，count.constructor将会返回字符串：function Object(){[native code]},其原因是count对象继承自Object.prototype,
+                而Object.prototype包含一个名为constructor的成员对象。count.constructor的值是一个Object。</p>
+            <p>解决办法：</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;1.采用for in 遍历，并用hasOwnProperty方法检测成员关系</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;2.可将上述代码的过滤条件改为 if(typeof count[word]==="number"){}</p>
+        </dd>
+
+        <dt><strong>使用DOM树结构托管事件</strong></dt>
+        <dd>
+            <p>当页面中存在大量元素，并且每个元素有一个或多个事件句柄连接时，可能会影响性能。一个简单而优雅的处理DOM事件的技术是事件托管。采用此技术后，
+                只需要在一个包装元素上连接一个句柄，用于处理子元素发生的所有事件。</p>
+            <p>事件托管原理：事件逐层冒泡总能被父元素捕获。</p>
+        </dd>
+
+        <dt><strong>类继承封装函数</strong></dt>
+        <dd>
+            <p>function extent(sub,sup){</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;var F=function(){};&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//定义一个空函数</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;F.prototype=sup.prototype;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//设置空函数的原型为超类的原型</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;sub.prototype=new F();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//实例化空函数，并把超类原型引用传递给子类</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;sub.prototype.contructor=sub;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //恢复子类原型的构造器为子类自身</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;sub.sup=sup.prototype;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//在子类中存储超类原型，避免子类和超类耦合</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;if（sup.prototype.constructor==Object.prototype.constructor){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//检查超类原型构造器是否为自身</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sup.prototype.constructor==sup; </p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+            <p>}</p>
+        </dd>
+
+        <dt><strong>理清HTML DOM加载流程</strong></dt>
+        <dd>
+            <p>HTML DOM文档加载是按顺序执行的，这与浏览器的渲染方式有关系，一般浏览器渲染操作的顺序如下：</p>
+            <p>第一步,解析HTML结构</p>
+            <p>第二步，加载外部脚本和样式表文件</p>
+            <p>第三步，解析并执行脚本代码</p>
+            <p>第四步，构造HTML DOM模型</p>
+            <p>第五步，加载图片等外部文件</p>
+            <p>第六步，页面加载完毕</p>
+        </dd>
+
+        <dt><strong>设计鼠标指针定位方案</strong></dt>
+        <dd>
+            <table >
+                <caption>鼠标定位事件属性</caption>
+                <thead>
+                <tr><th>运算符</th><th>执行的运算</th><th>兼容性</th></tr>
+                <tr>
+                    <td>clientX，clientY</td>
+                    <td>以浏览器窗口左上顶角为原点</td>
+                    <td>所有浏览器，不兼容Safari</td>
+                </tr>
+                <tr>
+                    <td>offsetX，offsetY</td>
+                    <td>以当前事件目标对象左上顶角为原点</td>
+                    <td>所有浏览器，不兼容Firefox</td>
+                </tr>
+                <tr>
+                    <td>pageX，pageY</td>
+                    <td>以document对象（即文档窗口）左上顶角为原点</td>
+                    <td>所有浏览器，不兼容IE</td>
+                </tr>
+                <tr>
+                    <td>screenX，screenY</td>
+                    <td>以计算机屏幕左上顶角为原点</td>
+                    <td>所有浏览器</td>
+                </tr>
+                <tr>
+                    <td>layerX，layerY</td>
+                    <td>以最近的绝对定位的父元素(如果没有，则为document对象)左上顶角为原点</td>
+                    <td>Firefor和Safari</td>
+                </tr>
+            </table>
+            <p>所以要获得鼠标的文档坐标，可如下获取：(posY同样）</p>
+            <p>posX=event.pageX||(event.clientX+documentElement.scrollLeft+document.body.scrollLeft</p>
+        </dd>
+        <dt><strong>正确计算盒装模型区域大小</strong></dt>
+        <dd>
+            <table >
+                <caption>与元素尺寸相关的元素</caption>
+                <thead>
+                <tr><th>属性</th><th>说明</th></tr>
+                <tr>
+                    <td>clientWidth，clientHeight</td>
+                    <td>获取元素可视部分的宽度/高度，即CSS的width/height和padding属性之和，元素边框和滚动条不包括在内，也不包含任何可能的滚动区域</td>
+                </tr>
+                <tr>
+                    <td>offsetWidth，offsetHeight</td>
+                    <td>元素在页面中占据的宽度/高度总和，包括width、padding、border，以及滚动条的宽度/高度</td>
+                </tr>
+                <tr>
+                    <td>scrollWidth，scrollHeight</td>
+                    <td>当元素设置了overflow:visible样式属性时元素的总宽度/高度</td>
+                </tr>
+            </table>
+        </dd>
+
+    </dl>
+
+    <dl id="content-CSS">
+        <dt><strong>HACK概念：</strong></dt>
+        <dd>不同的浏览器，比如Internet Explorer 6,Internet Explorer 7,Mozilla Firefox等，对CSS的解析认识不一样，因此会导致生成的页面效果不一样，得不到我们所需要的页面效果。这个时候我们就需要针对不同的浏览器去写不同的CSS，让它能够同时兼容不同的浏览器，能在不同的浏览器中也能得到我们想要的页面效果。这个针对不同的浏览器写不同的CSS code的过程，就叫CSS hack。
+        </dd>
+        <dt><strong>HACK规则：</strong></dt>
+        <dd>
+            <p>&nbsp;&nbsp;IE都能识别*;标准浏览器(如FF)不能识别*;</p>
+            <p>&nbsp;&nbsp;IE6能识别*，但不能识别 !important;</p>
+            <p>&nbsp;&nbsp;IE7能识别*，也能识别!important;</p>
+            <p>&nbsp;&nbsp;FF不能识别*，但能识别!important;</p>
+            <p>&nbsp;&nbsp;浏览器优先级别:FF&lt;IE7&lt;IE6,CSS hack书写顺序一般为FF IE7 IE6</p>
+            <table style="text-align:center;">
+                <thead>
+                <tr><td colspan=2>hack</td><td>FF</td><td>IE6</td><td>IE7</td><td>IE8</td></tr>
+                </thead>
+                <tbody>
+                <tr><td rowspan=4>CSS内部Hack</td><td>*</td><td>×</td><td>√</td><td>√</td><td>×</td></tr>
+                <tr><td>_</td><td>×</td><td>√</td><td>×</td><td>×</td></tr>
+                <tr><td>!important</td><td>×</td><td>不一定</td><td>√</td><td>√</td></tr>
+                <tr><td>\9</td><td>×</td><td>×</td><td>×</td><td>√</td></tr>
+                <tr><td rowspan=2>选择器Hack</td><td>*html</td><td>×</td><td>√</td><td>×</td><td>×</td></tr>
+                <tr><td>*+html,+html,*:first-child</td><td>×</td><td>×</td><td>√</td><td>×</td></tr>
+                <tr><td>HTML头部引用</td><td colspan=5>&lt;!--[if IE]&gt;...&lt;![end if]--&gt;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--[if lt IE7]&gt;...&lt;![end if]--&gt;等等</td>
+                </tbody>
+            </table>
+            <p>以: " #demo {width:100px;} "为例:</p>
+            <p>#demo {width:100px;}</p>
+            <p>*html #demo {width:120px;}</p>
+            <p>*+html #demo {width:130px;}</p>
+            <p> 所以最后,#demo的宽度在三个浏览器的解释为:FIREFOX:100px;ie6:120px;ie7:130px;</p><br/>
+            <p>注意:</p>
+            <p>*+html 对IE7的HACK 必须保证HTML顶部有如下声明:<br/>
+                &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"　"http://www.w3.org/TR/html4/loose.dtd"&gt;
+            </p><br/>
+            <p>IE6支持重定义的！important,但不支持同一定义中的！important</p>
+        </dd>
+        <dt><strong>万能 float 闭合</strong></dt>
+        <dd>
+            <p>将以下代码加入Global CSS 中,给需要闭合的div加上 class="clearfix" 即可,屡试不爽。</p>
+            <p>&lt;style&gt;<br/>
+                &nbsp;&nbsp;/* Clear Fix */<br/>
+                &nbsp;&nbsp;.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}<br/>
+                &nbsp;&nbsp;.clearfix{display:inline-block;}<br/>
+                &nbsp;&nbsp;* html .clearfix{height:1%;}<br/>
+                &nbsp;&nbsp;/* Hide from IE Mac */<br/>
+                &nbsp;&nbsp;.clearfix {display:block;}<br/>
+                &lt;/style&gt;
+            </p>
+        </dd>
+        <dt><strong>居中问题</strong></dt>
+        <dd>
+            <p>1).垂直居中</p>
+            <p>&nbsp;&nbsp;将 line-height 设置为 当前 div 相同的高度, 再通过 vertical-align: middle.( 注意内容不要换行.)</p>
+            <p>2).水平居中</p>
+            <p>&nbsp;&nbsp;margin: 0 auto;(当然不是万能)<br/>
+                &nbsp;&nbsp;可以把html的body之内任何项目置于中，该项目将自动获得相等的左右边界值从而保证了居中显示。不过，这在IE6之前版本的浏览器中仍然有问题，将不会居中，因此必须修改如下：<br/>
+                &nbsp;&nbsp;body {text-align: center;}<br/>
+                &nbsp;&nbsp;#content {text-align: left;width: 700px;margin: 0 auto;}<br/>
+                &nbsp;&nbsp;对body的设定将导致主体内容居中，但是连所有的文字也居中了，这恐怕不是你想要的效果，为此#content 的div还要指定一个值：text-align: left<br/>
+            </p>
+        </dd>
+        <dt><strong> IE5 和其它浏览器的BOX解释不一致</strong></dt>
+        <dd>
+            <p>div{width:300px;margin:0 10px 0 10px;}</p>
+            <p>IE5下div的宽度会被解释为300px-10px(右填充)-10px(左填充)最终div的宽度为280px<br/>
+                而在IE6和其他浏览器上宽度则是以300px+10px(右填充)+10px(左填充)=320px来计算的。<br/>
+                这时我们可以做如下修改div{width:300px!important;width :340px;margin:0 10px 0 10px}<br/>
+            </p>
+        </dd>
+        <dt><strong>CSS样式的一些解决办法</strong></dt>
+        <dd>
+            <p>兼容IE和FF换行的CSS样式div{word-wrap:break-word;overflow:hidden;}</p>
+            <p>cursor: pointer 可以同时在 IE FF 中显示游标手指状， hand 仅 IE 可以</p><br/>
+            <p>在mozilla firefox和IE中的BOX模型解释不一致导致相差2px解决方法：<br/>
+                div{margin:30px!important;margin:28px;}
+            </p><br/>
+            <p>设置为float的div在ie下设置的margin会加倍。这是一个ie6都存在的bug。<br/>
+                解决方案是在这个div里面加上display:inline;
+            </p>
+        </dd>
+
+    </dl>
+
+    <dl id="content-web">
+        <dt><strong>降低网络成本</strong></dt>
+        <dd>
+            <p>1.最大限度减少HTTP请求数。<br/>
+                2.控制网站流量，合并样式图片。<br/>
+                3.图片优化压缩处理，无损地减少图片体体积。<br/>
+                4.减少CSS文件的体积，合并css样式文件。<br/>
+                5.提高客户端渲染速度，尽量不使用占用过多CUP，占用过多内存的代码 如: text-indnt:-9999px 、IE滤镜等<br/>
+                6.减少HTML的嵌套，减少无语义代码。 如:&lt;div class=”clear”&gt;&lt;/div&gt;消除浮动等<br/>
+            </p>
+        </dd>
+        <dt><strong>Web内容可访问性 / 兼容性</strong></dt>
+        <dd>
+            <p>1.电脑浏览器兼容性。<br/>
+                2.电脑分辨率兼容性。<br/>
+                3.其它屏幕阅读器兼容性。<br/>
+                4.语音浏览器兼容性。(暂时没有考虑,关注中,网易新闻有声版 做得不错)<br/>
+                5.需要的话打印机兼容性也考虑，要求能准确的打印到需要的信息。<br/>
+            </p>
+        </dd>
+        <dt><strong>HTML 相关规划管理</strong></dt>
+        <dd>
+            <p>1.HTML内容的代码框架规划，把最重要主要的内容放在代码最前端。<br/>
+                2.合理地织与规划样式，适当的添加注释。<br/>
+                3.团队要有共识，使用共同的规范约定来编写代码。<br/>
+                4.根据产品需求，选择合适的方案，尽量做到代码效率最高，下载量最小， 最大限度重用代码。<br/>
+                5.HTML能通过验证之余要又语义.这是较为重要的一点。<br/>
+            </p>
+        </dd>
+        <dt><strong>Seo优化</strong></dt>
+        <dd>
+            <p>1.依照web标准 使用最合理的标签，包含合理的内容。<br/>
+                2.把最重要内容放在代码前端，代码越前被搜索到的几率越高！<br/>
+                3.图片必须加上( alt )提示信息。<br/>
+                4.尽量做到样式图片所包含的文字，代码中也要出现。<br/>
+                5.给一个标签标明这是你的导航， 在没CSS样式支持下，别人并不知道那是你的导航， 哪些没明显标题的板块也应如此。<br/>
+            </p>
+        </dd>
+        <dt><strong>其它</strong></dt>
+        <dd>
+            <p>在制作页面时应该先不考虑样式，安照页面内容重要程度用适当的HTML标签包含，按重要信息至上次要至下排序好，然后才使用CSS恢复设计图的样式，如当前代码没法按设计图还原时才再次添加HTML标签。
+            </p>
+        </dd>
+    </dl>
+
+    <dl id="content-eventKeycode">
+        <dt><strong>常用按键响应事件keypress对应的按键编码keycode</strong></dt>
+        <dd>
+            <table style="text-align: center;">
+                <thead>
+                <tr><td>keycode</td><td>键</td><td>keycode</td><td>键</td></tr>
+                </thead>
+                <tbody>
+                <tr><td>9</td><td>Tab</td><td>13</td><td>Enter</td></tr>
+                <tr><td>16</td><td>Shift_L </td><td>17</td><td>Control_L </td></tr>
+                <tr><td>18</td><td>Alt_L</td><td>20</td><td>Caps_Lock</td></tr>
+                <tr><td>37</td><td>Left</td><td>38</td><td>Up</td></tr>
+                <tr><td>39</td><td>Right</td><td>40</td><td>Down</td></tr>
+                <tr><td>65</td><td>a A</td><td>90</td><td>z Z</td></tr>
+                <tr><td>112</td><td>F1</td><td>123</td><td>F12</td></tr>
+                </tbody>
+            </table>
+            <p>如果要使用组合键，则可以利用event.ctrlKey，event.shiftKey，event .altKey判断是否按下了ctrl键、shift键以及alt键</p>
+        </dd>
+    </dl>
+    </div>
+</div>
+<div id="mainright">
+    <h3>前端好资源(排名不分先后）：</h3>
+    <ul id="urlleft">
+        <li><a href="http://www.web-tinker.com/" target=_blank>1.web技术研究所</a></li>
+        <li><a href="http://qianduan.us/" target=_blank>2.前端界</a></li>
+        <li><a href="http://www.daqianduan.com/" target=_blank>3.大前端</a></li>
+        <li><a href="http://ecd.tencent.com/css3/index.html" target=_blank>4.CSS3 Animation</a></li>
+        <li><a href="http://www.html5cn.org/" target=_blank>5.HTML5中国</a></li>
+        <li><a href="http://www.qianduan.net" target=_blank>6.WEB前端开发</a></li>
+        <li><a href="http://www.jiawin.com/" target=_blank>7.觉唯</a></li>
+        <li><a href="http://ecd.tencent.com/css3/index.html" target=_blank>8.CSS3 Animation</a></li>
+        <li><a href="http://www.html5cn.org/" target=_blank>9.HTML5中国</a></li>
+        <li><a href="http://www.csser.com/" target=_blank>10.csser前端技术社区</a></li>
+    </ul>
+    <ul id="urlright">
+        <li><a href="http://www.w3cfuns.com/" target=_blank>11.W3Cfuns</a></li>
+        <li><a href="http://www.qianduan.net/" target=_blank>12.前端观察</a></li>
+        <li><a href="http://www.cnblogs.com/rubylouvre/" target=_blank>13.司徒正美博客</a></li>
+        <li><a href="http://ued.taobao.com/blog/" target=_blank>14.淘宝UED</a></li>
+        <li><a href="http://www.alloyteam.com/" target=_blank>15.腾讯Alloy Team</a></li>
+        <li><a href="http://mux.baidu.com/" target=_blank>16.百度MUX</a></li>
+        <li><a href="http://www.75team.com/" target=_blank>17.360奇舞团</a></li>
+        <li><a href="http://javascriptweekly.com/" target=_blank>18.javascript Weekly</a></li>
+    </ul>
+</div>
+<div id="bottom">Copyright &copy; 2014 杨云梅个人版权所有
+</div>
+<script type="text/javascript" src="js/toTop.js"></script>
+<script type="text/javascript" src="js/nav.js"></script>
+<script type="text/javascript" src="js/resume.js"></script>
+<script type="text/javascript" src="js/experience.js"></script>
+<script type="text/javascript" src="js/changeSkin.js"></script>
+</body>
+</html>

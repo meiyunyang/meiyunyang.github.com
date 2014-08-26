@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>爱得欧式蛋糕</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" href="css/orman.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+
+<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/ddsmoothmenu.js"></script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "menu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+function clearText(field)
+{
+    if (field.defaultValue == field.value) field.value = '';
+    else if (field.value == '') field.value = field.defaultValue;
+}
+
+$(document).ready(function (){
+    var args = getQueryStringArgs();
+    var cakeName = args["pic"],
+    quality = args["count"],
+    price = args["price"],
+    cookieName = cakeName,
+    cookieValue = "name:"+cakeName+"/quality:"+quality+"/price:"+price;
+    $.cookie(cookieName,cookieValue);
+
+    cakeArgs = getAllCookie();
+    showCakesInCart();
+
+    $(".quality").change(function(){
+
+        var $quality = $(this);
+        var $img = $quality.parent().parent().find("img");
+        var pos = $img.attr("src").indexOf(".");
+        var cakeName = $img.attr("src").substring(pos-2);
+        console.log(cakeName);
+        var price  = $quality.parent().next().text();
+        var quality = $quality.val();
+        var cookieNameLocal = cakeName,
+                cookieValueLocal = "name:"+cakeName+"/quality:"+quality+"/price:"+price;
+        $quality.parent().next().next().text(price*quality);
+        calcAmount();
+        $.cookie(cookieNameLocal,cookieValueLocal);
+    });
+
+    $(".remove").click(function(){
+        if(confirm("确定要删除吗?")){
+            $tr = $(this).parent().parent();
+            var $img = $tr.find("img");
+            var pos = $img.attr("src").indexOf(".");
+            var cakeName = $img.attr("src").substring(pos-2);
+            $tr.remove();
+            calcAmount();
+            $.cookie(cakeName,null);
+        }else{
+            return false;
+        }
+    });
+
+    /*$("#gotocheckout").mouseover(function(){
+        //$(this).attr("href","checkout.html?amount="+$("#amount").text());
+        console.log( $(this).attr());
+    });*/
+ });
+
+//计算总金额
+function calcAmount(){
+    var items = $(".sub_amount");
+    var len = items.length;
+    var amount = 0;
+    for (var i=0;i<len;i++){
+        amount = amount + Number($(items[i]).text());
+    }
+    $("#amount").text(amount);
+    $("#gotocheckout").attr("href","checkout.html?amount="+amount);
+}
+function showCakesInCart(){
+
+    var amount = 0;
+    //购物车中蛋糕的种类数目
+    for(var ele in cakeArgs){
+        //alert(cakeArgs[ele]);//下标
+        if(cakeArgs[ele]){
+            console.log(typeof cakeArgs[ele]);
+            var str = cakeArgs[ele];
+            console.log(str);
+            var items = str.split("%2");//即为“/”
+            console.log(items);
+            var cakeName = items[0].split("%3A")[1]; //即为“：”
+            console.log(cakeName);
+            var quality= items[1].split("%3A")[1];
+            console.log(price);
+            var price = items[2].split("%3A")[1];
+            console.log(quality);
+            amount = amount + quality*price;
+            var html = '<tr bgcolor="#41581B"><td><img src="images/product/'+cakeName+'" alt="爱得蛋糕" /></td><td>爱得蛋糕'+cakeName.substring(0,2)+'</td>';
+            html = html + '<td align="center"><input class="quality" type="text" value="'+quality+'" size="6" maxlength="2" /> </td>';
+            html = html + '<td align="right">'+price+'</td><td align="right" class="sub_amount">'+ quality*price +'</td><td align="center"> <a href="#" class="remove"><img src="images/remove.png" alt="remove" /><br />删除</a></td></tr>';
+
+            console.log(html);
+            //$(html).appendTo($table);
+            $("#pic_table tr:eq(0)").after(html);
+        }
+    }
+    $("#amount").text(amount);
+    $("#gotocheckout").attr("href","checkout.html?amount="+amount);
+}
+//解析URL中的数据
+function getQueryStringArgs() {
+    console.log(location.search);
+    var qs = (location.search.length > 0 ? location.search.substring(1) : ""),
+            args = {},
+            items = qs.length ? qs.split("&") : [],
+            item = null,
+            name = null,
+            value = null,
+            i = 0,
+            len = items.length;
+    for (i = 0; i < len; i++) {
+        item = items[i].split("=");
+        name = decodeURIComponent(item[0]);
+        value = decodeURIComponent(item[1]);
+        if (name.length)
+            args[name] = value;
+    }
+    return args;
+};
+//获取cookie中的数据
+//cookiename为图片名称，cookievalue为name:cakeName/quality:quality/price:price
+function getAllCookie(){
+    var aCookie = document.cookie.split(";"),
+    name = null,
+    value = null,
+    args = [];
+
+    for (var i = 0; i < aCookie.length; i++) {
+        var aCrumb = aCookie[i].split("=");
+        name = aCrumb[0];
+        value = aCrumb[1];
+        if (name.length)
+            args[name] = value;
+    }
+    return args;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div id="wrapper_sp">
+<div id="header_wsp">
+	<div id="header" class="header_subpage">
+        <div id="site_title"><a href="index.html" title="爱德欧式蛋糕">爱德欧式蛋糕</a></div>
+        <div id="menu" class="ddsmoothmenu">
+            <ul>
+                <li><a href="index.html">主页</a></li>
+                <li><a href="products.html">爱得产品</a>
+                    <ul>
+                        <li><a href="marriagecake.html" >婚礼蛋糕</a></li>
+                        <li><a href="childrencake.html" >儿童生日蛋糕</a></li>
+                        <li><a href="birthdaycake.html" >生日蛋糕</a></li>
+                        <li><a href="valentine's cake.html" >情人节蛋糕</a></li>
+                    </ul>
+                </li>
+                <li><a href="checkout.html">收银台</a></li>
+                <li><a href="shoppingcart.html" class="selected">购物车</a></li>
+                <li><a href="about.html">关于爱得</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+            <div id="search">
+                <form action="#" method="get">
+                  	<input type="text" value="生日蛋糕" name="keyword" id="keyword" title="keyword"
+                  			onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
+                  	<input type="submit" name="Search" value="" alt="Search" id="searchbutton" title="Search" class="sub_btn" />
+                </form>
+            </div>
+            <br style="clear: left" />
+        </div> 
+        <a href="#" title="图像"  class="site_repeat" ><img src="images/top_repeat.png" title="图像"  /></a><!-- end of templatemo_menu -->
+
+    </div> <!-- END of header -->
+</div> <!-- END of header wrapper -->
+<div id="main_wrapper">
+<div id="main">
+	<div id="sidebar" class="left">
+    	<div class="sidebar_box"><span class="bottom"></span>
+            <h3>产品分类</h3>
+            <div class="content">
+                <ul class="sidebar_list">
+                    <li><a href="#">婚礼蛋糕系列</a></li>
+                    <li><a href="#">生日蛋糕系列</a></li>
+                    <li><a href="#">会议蛋糕系列</a></li>
+                    <li><a href="#">精致礼盒系列</a></li>
+                    <li><a href="#">伴手礼系列</a></li>
+                    <li><a href="#">甜品系列</a></li>
+                    <li><a href="#">面包系列</a></li>
+                    <li><a href="#">月饼系列</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sidebar_box"><span class="bottom"></span>
+            <h3>每周特惠</h3>
+            <div class="content special">
+                <img src="images/templatemo_image_01.jpg" alt="Flowers" />
+                <a href="#">精美儿童生日蛋糕</a>
+                <p>
+                    <span class="price normal_price">￥160</span>&nbsp;&nbsp;
+                    <span class="price special_price">￥100</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="content" class="right">
+    	<h2>您的购物车</h2>
+		<table width="700" border="0" cellpadding="5" cellspacing="0" id="pic_table">
+          	<tr bgcolor="#395015">
+                <th width="168" align="left">商品</th>
+                <th width="188" align="left">商品介绍</th>
+                <th width="80" align="left">单价（元）</th>
+                <th width="60" align="center">数量</th>
+                <th width="80" align="right">金额（元）</th>
+                <th width="64"> </th>
+          	</tr>
+            <tr bgcolor="#41581B">
+                <td colspan="4" align="right"><h4>总金额（元）</h4></td>
+                <td align="right"><h4 id="amount">0</h4></td>
+                <td> </td>
+            </tr>
+        </table>
+		<div class="cleaner h20"></div>
+        <div class="right"><a href="checkout.html" class="button" id="gotocheckout">去结账</a></div>
+        <div class="cleaner h20"></div>
+
+    </div>
+    <div class="cleaner"></div>
+</div> <!-- END of main -->
+</div> <!-- END of main wrapper -->
+
+<div id="footer_wrapper">
+<div id="footer">
+	<div class="footer_left">
+    	<a href="#"><img src="images/paypal-straight.png" alt="Paypal" /></a>
+        <a href="#"><img src="images/mastercard-straight.png" alt="Master" /></a>
+        <a href="#"><img src="images/visa-straight.png" alt="Visa" /></a>
+    </div>
+	<div class="footer_right">
+        <p><a href="index.html">主页</a> | <a href="products.html">爱得产品</a> | <a href="about.html">关于爱得</a>  | <a href="shoppingcart.html">购物车</a> | <a href="checkout.html">收银台</a> | <a href="contact.html">联系我们</a></p>
+        <p>Copyright &copy; 2014 <a href="#">爱德欧式蛋糕</a></p>
+	</div>
+    <div class="cleaner"></div>
+</div> <!-- END of footer -->
+</div> <!-- END of footer wrapper -->
+</div>
+
+</body>
+
+</html>

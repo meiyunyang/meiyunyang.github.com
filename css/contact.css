@@ -1,0 +1,8 @@
+#bottom {clear:left;position:relative;top:200px;margin:0px auto;width:500px;height:40px;padding-left:23px;padding-top:20px; 
+	overflow:hidden;color:#1C5F8C;text-align:center; line-height:40px;font-size:16px;}
+#contact_info {clear:left;position:relative;top:145px;margin:0px auto;width:800px;height:600px;background:url("../images/contact_bg.jpg") no-repeat;
+	background-size:cover;line-height:40px;text-align:left;border:solid 1px;font-size:24px;border-radius:25px;}
+
+#contact_info h1{position:relative;margin:150px auto 50px;text-align:center;}
+#contact_info div{position:relative;margin:10px auto 10px;text-align:center;}
+#contact_info a{text-decoration:none;}

@@ -1,0 +1,6 @@
+body{background:#f4f2e3 url(../images/bg/bg_yellow.png) repeat-y top center;  }
+#nav li a { color:#1C5F8C; }
+#nav li a:hover, #nav li.cur a { color:#0A7A1A; }
+#main h2 { color:#0a7a1a; }
+#bottom{ color:#565656;}
+

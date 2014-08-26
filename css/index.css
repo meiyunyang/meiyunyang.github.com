@@ -1,0 +1,8 @@
+#main {clear:left;position:relative;top:130px;margin:0px auto;width:80%;padding:10px 50px;}
+#bottom {clear:left;position:relative;top:200px;margin:0px auto;width:500px;padding-left:23px; height:40px; padding-top:20px; overflow:hidden; 
+    color:#1C5F8C;text-align:center; line-height:40px;font-size:16px;}
+h1{position:relative;margin:0px auto 50px auto;font-size:36px;text-align:center;color:#1C5F8C;}
+h2{text-indent:2em;}
+#view {line-height:36px;text-indent:2em;padding:10px 50px;font-size:20px;}
+.manifesto {line-height:44px;padding:10px 50px;font-size:24px;color:#1C5F8C;font-weight:bold;}
+.audiojs { position:absolute;right:230px;width:250px;top:8px;margin: 15px 0px 20px; }

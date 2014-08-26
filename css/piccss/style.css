@@ -1,0 +1,11 @@
+h2, h2 a { color: #F14E32; }
+h3, h3 a { color: #0388A6; }
+a { color: #0388A6; }
+pre { border:1px solid #000; overflow-x:auto; background: #222; color: #fff; text-shadow: none; }
+#n{margin:10px auto; width:920px; border:1px solid #CCC;font-size:12px; line-height:30px;}
+#n a{ padding:0 4px; color:#333}
+
+.wrapper { position:relative;top:120px;max-width: 620px; padding: 0 20px 40px 20px; margin:0 auto; }
+
+#bottom {clear:left;position:relative;top:200px;margin:0px auto;width:500px;padding-left:23px; height:40px; padding-top:20px; overflow:hidden; 
+    color:#1C5F8C;text-align:center; line-height:40px;}

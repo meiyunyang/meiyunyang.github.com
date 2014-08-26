@@ -1,0 +1,6 @@
+body{background: #CFEEF3 url(../images/bg/bg_black.gif) repeat bottom center; }
+#nav li a { color:#111111; }
+#nav li a:hover, #nav li.cur a { color:#0A7A1A; }
+#main h2 { color:#1C5F8C; }
+#bottom{ color:#1C5F8C;}
+#view{ color:#1C5F8C;}

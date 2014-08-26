@@ -1,0 +1,24 @@
+body{overflow-x:hidden;}
+#container{position:absolute;top:280px;margin:0px auto;width:80%;left:130px;background: #F2EDB4;padding:0 10px 50px 10px;}
+#myresume{position:relative;top:-100px;margin:0px auto;	background-color:#FFF;}
+.title1{font-size:36px;}
+.title2{font-size:18px;}
+.title3{font-size:20px;}
+div.theme{border:none;border-top:solid 2px rgb(220,31,216);font-size:14px;line-height:24px;	padding:0px;}
+label{color:rgb(220,31,216);font-weight:bold;}
+ul.arrow{list-style-type:none;list-style-image:url("../images/arrow.jpg");margin-bottom:0px;padding-bottom:0px;}
+ol>li{list-style-type:lower-roman;}
+#info>table{width:100%;}
+.txtleft{text-align:left;}
+.txtRight{text-align:right;}
+.w12{font-size:12px;}
+.bold{font-weight:bold;}
+#bottom{position:relative;top:2400px;margin:0px auto;width:400px;padding-left:23px; height:40px; padding-top:20px; overflow:hidden; 
+    color:#1C5F8C;text-align:center; line-height:40px;font-size:16px;}
+#container h2 {position:relative;top:50px;left:50px;text-shadow:5px 5px 4px #888;background:url(../images/flower.png) no-repeat;height:150px;padding-left:50px;line-height:100px;font-size:24px; margin-bottom:10px;}
+#download-nav{ position:relative;left:820px;top:-100px;margin-top:0; z-index:12  }
+#download-nav li{ margin-bottom: 8px;list-style-type:none;}
+#download-nav li a{padding-left: 40px; display: block; height:32px; line-height: 32px; font-size: 14px; color: #000}
+#download-nav li a:hover{ color: #009900}
+#print{background: url(../images/print.png) no-repeat left center; }
+#download{background: url(../images/download.png) no-repeat left center; }

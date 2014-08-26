@@ -1,0 +1,5 @@
+body{background:url(../images/bg/bg_white.jpg) top center #fff; }
+#nav li a { color:#111111; }
+#nav li a:hover, #nav li.cur a { color:#0A7A1A; }
+#main h2 { color:#1C5F8C; }
+#bottom{ color:#1C5F8C;}

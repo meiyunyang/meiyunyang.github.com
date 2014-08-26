@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>爱得欧式蛋糕</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+    .xianshi {display:""!important;}
+    .yincang {display:"none"!important;}
+</style>
+<link rel="stylesheet" href="css/orman.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+
+<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/ddsmoothmenu.js"></script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "menu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+function clearText(field)
+{
+    if (field.defaultValue == field.value) field.value = '';
+    else if (field.value == '') field.value = field.defaultValue;
+};
+
+$(document).ready(function(){
+    $list = $(".pagelist");
+
+    $list.click(function(){
+        var id = $(this).attr("id").substring(4);
+        for(var i=0; i<4; i++){
+            $($list[i]).attr("style","display:none");
+        }
+        $("#div_"+id).attr("style","display:block");
+        return false;
+    });
+});
+</script>
+
+
+</head>
+
+<body>
+
+<div id="wrapper_sp">
+<div id="header_wsp">
+	<div id="header" class="header_subpage">
+        <div id="site_title"><a href="index.html" title="爱德欧式蛋糕">爱德欧式蛋糕</a></div>
+        <div id="menu" class="ddsmoothmenu">
+            <ul>
+                <li><a href="index.html">主页</a></li>
+                <li><a href="products.html" class="selected">爱得产品</a>
+                    <ul>
+                        <li><a href="marriagecake.html" >婚礼蛋糕</a></li>
+                        <li><a href="childrencake.html" >儿童生日蛋糕</a></li>
+                        <li><a href="birthdaycake.html" >生日蛋糕</a></li>
+                        <li><a href="valentine's cake.html" >情人节蛋糕</a></li>
+                    </ul>
+                </li>
+                <li><a href="checkout.html">收银台</a></li>
+                <li><a href="shoppingcart.html">购物车</a></li>
+                <li><a href="about.html">关于爱得</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+            <div id="search">
+                <form action="#" method="get">
+                  	<input type="text" value="生日蛋糕" name="keyword" id="keyword" title="keyword"
+                  			onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
+                  	<input type="submit" name="Search" value="" alt="Search" id="searchbutton" title="Search" class="sub_btn" />
+                </form>
+            </div>
+            <br style="clear: left" />
+        </div> 
+        <a href="#" title="图片"  class="site_repeat" target="_blank"><img src="images/top_repeat.png"  alt="图片" /></a><!-- end of templatemo_menu -->
+        
+    </div> <!-- END of header -->
+</div> <!-- END of header wrapper -->
+<div id="main_wrapper">
+<div id="main">
+	<div id="sidebar" class="left">
+    	<div class="sidebar_box"><span class="bottom"></span>
+            <h3>产品分类</h3>
+            <div class="content">
+                <ul class="sidebar_list">
+                    <li><a href="#">婚礼蛋糕系列</a></li>
+                    <li><a href="#">生日蛋糕系列</a></li>
+                    <li><a href="#">会议蛋糕系列</a></li>
+                    <li><a href="#">精致礼盒系列</a></li>
+                    <li><a href="#">伴手礼系列</a></li>
+                    <li><a href="#">甜品系列</a></li>
+                    <li><a href="#">面包系列</a></li>
+                    <li><a href="#">月饼系列</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sidebar_box"><span class="bottom"></span>
+            <h3>每周特惠</h3>
+            <div class="content special">
+                <img src="images/templatemo_image_01.jpg" alt="Flowers" />
+                <a href="#">精美儿童生日蛋糕</a>
+                <p>
+                    <span class="price normal_price">￥160</span>&nbsp;&nbsp;
+                    <span class="price special_price">￥100</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="content" class="right">
+		<h2>所有产品</h2>
+        <p>爱得，从欧式文化中取材，再造美食文化的精致内涵。我们引进国外先进的生产管理技术，聘请技艺纯熟的食品调理大师，精选上等原料，细细精致成各项美食。我们让每一项独具特色的产品，成为生活中最值得回味的记忆！爱得食品，是“礼的代言者”，在温馨的送往迎来之间，展现您精致合礼的品味风范，让您与您的朋友们联结更紧密。</p>
+        <div id="div_1" class="pagelist">
+        <div class="product_box">
+            <a href="productdetail.html?pic=01.jpg&price=160"><img src="images/product/01.jpg" alt="儿童蛋糕01" /></a>
+            <h3>儿童蛋糕01</h3>
+            <p class="product_price">￥160</p>
+            <p class="add_to_cart">
+                <a href="productdetail.html?pic=01.jpg&price=160">详情</a>
+                <a href="shoppingcart.html?pic=01.jpg&price=160&count=1">放入购物车</a>
+            </p>
+        </div>
+        <div class="product_box">
+            <a href="productdetail.html?pic=02.jpg&price=160"><img src="images/product/02.jpg" alt="儿童蛋糕02" /></a>
+            <h3>儿童蛋糕02</h3>
+            <p class="product_price">￥160</p>
+            <p class="add_to_cart">
+                <a href="productdetail.html?pic=02.jpg&price=160">详情</a>
+                <a href="shoppingcart.html?pic=02.jpg&price=160&count=1">放入购物车</a>
+            </p>
+        </div>
+        <div class="product_box">
+            <a href="productdetail.html?pic=03.jpg&price=160"><img src="images/product/03.jpg" alt="儿童蛋糕03" /></a>
+            <h3>儿童蛋糕03</h3>
+            <p class="product_price">￥160</p>
+            <p class="add_to_cart">
+                <a href="productdetail.html?pic=03.jpg&price=160">详情</a>
+                <a href="shoppingcart.html?pic=03.jpg&price=160&count=1">放入购物车</a>
+            </p>
+        </div>
+        <div class="product_box no_margin_right">
+            <a href="productdetail.html?pic=04.jpg&price=160"><img src="images/product/04.jpg" alt="儿童蛋糕04" /></a>
+            <h3>儿童蛋糕04</h3>
+            <p class="product_price">￥160</p>
+            <p class="add_to_cart">
+                <a href="productdetail.html?pic=04.jpg&price=160">详情</a>
+                <a href="shoppingcart.html?pic=04.jpg&price=160&count=1">放入购物车</a>
+            </p>
+        </div>
+
+        <div class="product_box">
+            <a href="productdetail.html?pic=05.jpg"><img src="images/product/05.jpg" alt="儿童蛋糕05" /></a>
+            <h3>儿童蛋糕05</h3>
+            <p class="product_price">￥160</p>
+            <p class="add_to_cart">
+                <a href="productdetail.html?pic=05.jpg&price=160">详情</a>
+                <a href="shoppingcart.html?pic=05.jpg&price=160&count=1">放入购物车</a>
+            </p>
+        </div>
+        <div class="product_box">
+            <a href="productdetail.html?pic=06.jpg&price=160"><img src="images/product/06.jpg" alt="儿童蛋糕06" /></a>
+            <h3>儿童蛋糕06</h3>
+            <p class="product_price">￥160</p>
+            <p class="add_to_cart">
+                <a href="productdetail.html?pic=06.jpg&price=160">详情</a>
+                <a href="shoppingcart.html?pic=06.jpg&price=160&count=1">放入购物车</a>
+            </p>
+        </div>
+        <div class="product_box">
+            <a href="productdetail.html?pic=07.jpg&price=160"><img src="images/product/07.jpg" alt="儿童蛋糕07" /></a>
+            <h3>儿童蛋糕07</h3>
+            <p class="product_price">￥160</p>
+            <p class="add_to_cart">
+                <a href="productdetail.html?pic=07.jpg&price=160">详情</a>
+                <a href="shoppingcart.html?pic=07.jpg&price=160&count=1">放入购物车</a>
+            </p>
+        </div>
+        <div class="product_box no_margin_right">
+            <a href="productdetail.html?pic=08.jpg&price=160"><img src="images/product/08.jpg" alt="儿童蛋糕08" /></a>
+            <h3>儿童蛋糕08</h3>
+            <p class="product_price">￥160</p>
+            <p class="add_to_cart">
+                <a href="productdetail.html?pic=08.jpg&price=160">详情</a>
+                <a href="shoppingcart.html?pic=08.jpg&price=160&count=1">放入购物车</a>
+            </p>
+        </div>
+        </div>
+        <div id="div_2" class="pagelist" style="display:none">
+            <div class="product_box">
+                <a href="productdetail.html?pic=09.jpg&price=520"><img src="images/product/09.jpg" alt="婚礼蛋糕09" /></a>
+                <h3>婚礼蛋糕09</h3>
+                <p class="product_price">￥520</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=09.jpg&price=520">详情</a>
+                    <a href="shoppingcart.html?pic=09.jpg&price=520&count=1">放入购物车</a>
+                </p>
+            </div>
+            <div class="product_box">
+                <a href="productdetail.html?pic=10.jpg&price=520"><img src="images/product/10.jpg" alt="婚礼蛋糕10" /></a>
+                <h3>婚礼蛋糕10</h3>
+                <p class="product_price">￥520</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=10.jpg&price=520">详情</a>
+                    <a href="shoppingcart.html?pic=10.jpg&price=520&count=1">放入购物车</a>
+                </p>
+            </div>
+            <div class="product_box no_margin_right">
+                <a href="productdetail.html?pic=11.jpg&price=520"><img src="images/product/11.jpg" alt="婚礼蛋糕11" /></a>
+                <h3>婚礼蛋糕11</h3>
+                <p class="product_price">￥520</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=11.jpg&price=520">详情</a>
+                    <a href="shoppingcart.html?pic=11.jpg&price=520&count=1">放入购物车</a>
+                </p>
+            </div>
+
+            <div class="product_box">
+                <a href="productdetail.html?pic=12.jpg&price=520"><img src="images/product/12.jpg" alt="婚礼蛋糕12" /></a>
+                <h3>婚礼蛋糕12</h3>
+                <p class="product_price">￥520</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=12.jpg&price=520">详情</a>
+                    <a href="shoppingcart.html?pic=12.jpg&price=520&count=1">放入购物车</a>
+                </p>
+            </div>
+            <div class="product_box">
+                <a href="productdetail.html?pic=13.jpg&price=520"><img src="images/product/13.jpg" alt="婚礼蛋糕13" /></a>
+                <h3>婚礼蛋糕13</h3>
+                <p class="product_price">￥520</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=13.jpg&price=520">详情</a>
+                    <a href="shoppingcart.html?pic=13.jpg&price=520&count=1">放入购物车</a>
+                </p>
+            </div>
+            <div class="product_box">
+                <a href="productdetail.html?pic=14.jpg&price=520"><img src="images/product/14.jpg" alt="婚礼蛋糕14" /></a>
+                <h3>婚礼蛋糕14</h3>
+                <p class="product_price">￥520</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=14.jpg&price=520">详情</a>
+                    <a href="shoppingcart.html?pic=14.jpg&price=520&count=1">放入购物车</a>
+                </p>
+            </div>
+            <div class="product_box no_margin_right">
+                <a href="productdetail.html?pic=15.jpg&price=520"><img src="images/product/15.jpg" alt="婚礼蛋糕15" /></a>
+                <h3>婚礼蛋糕15</h3>
+                <p class="product_price">￥520</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=15.jpg&price=520">详情</a>
+                    <a href="shoppingcart.html?pic=15.jpg&price=520&count=1">放入购物车</a>
+                </p>
+            </div>
+            <div class="product_box">
+                <a href="productdetail.html?pic=16.jpg&price=520"><img src="images/product/16.jpg" alt="婚礼蛋糕16" /></a>
+                <h3>婚礼蛋糕16</h3>
+                <p class="product_price">￥520</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=16.jpg&price=520">详情</a>
+                    <a href="shoppingcart.html?pic=16.jpg&price=520&count=1">放入购物车</a>
+                </p>
+            </div>
+        </div>
+        <div id="div_3" class="pagelist" style="display:none">
+            <div class="product_box">
+                <a href="productdetail.html?pic=25.jpg&price=214"><img src="images/product/25.jpg" alt="25情人节蛋糕" /></a>
+                <h3>情人节蛋糕25</h3>
+                <p class="product_price">￥214</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=25.jpg&price=214">详情</a>
+                    <a href="shoppingcart.html?pic=25.jpg&price=214&count=1">放入购物车</a>
+                </p>
+            </div>
+            <div class="product_box">
+                <a href="productdetail.html?pic=26.jpg&price=214"><img src="images/product/26.jpg" alt="26情人节蛋糕" /></a>
+                <h3>情人节蛋糕26</h3>
+                <p class="product_price">￥214</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=26.jpg&price=214">详情</a>
+                    <a href="shoppingcart.html?pic=26.jpg&price=214&count=1">放入购物车</a>
+                </p>
+            </div>
+            <div class="product_box">
+                <a href="productdetail.html?pic=27.jpg&price=214"><img src="images/product/27.jpg" alt="27情人节蛋糕" /></a>
+                <h3>情人节蛋糕27</h3>
+                <p class="product_price">￥214</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=27.jpg&price=214">详情</a>
+                    <a href="shoppingcart.html?pic=27.jpg&price=214&count=1">放入购物车</a>
+                </p>
+            </div>
+            <div class="product_box no_margin_right">
+                <a href="productdetail.html?pic=28.jpg&price=214"><img src="images/product/28.jpg" alt="28情人节蛋糕" /></a>
+                <h3>情人节蛋糕28</h3>
+                <p class="product_price">￥214</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=28.jpg&price=214">详情</a>
+                    <a href="shoppingcart.html?pic=28.jpg&price=214&count=1">放入购物车</a>
+                </p>
+            </div>
+
+            <div class="product_box">
+                <a href="productdetail.html?pic=29.jpg&price=214"><img src="images/product/29.jpg" alt="29情人节蛋糕" /></a>
+                <h3>情人节蛋糕29</h3>
+                <p class="product_price">￥214</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=29.jpg&price=214">详情</a>
+                    <a href="shoppingcart.html?pic=29.jpg&price=214&count=1">放入购物车</a>
+                </p>
+            </div>
+            <div class="product_box">
+                <a href="productdetail.html?pic=30.jpg&price=214"><img src="images/product/30.jpg" alt="30情人节蛋糕" /></a>
+                <h3>情人节蛋糕30</h3>
+                <p class="product_price">￥214</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=30.jpg&price=214">详情</a>
+                    <a href="shoppingcart.html?pic=30.jpg&price=214&count=1">放入购物车</a>
+                </p>
+            </div>
+            <div class="product_box">
+                <a href="productdetail.html?pic=31.jpg&price=214"><img src="images/product/31.jpg" alt="31情人节蛋糕" /></a>
+                <h3>情人节蛋糕31</h3>
+                <p class="product_price">￥214</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=31.jpg&price=214">详情</a>
+                    <a href="shoppingcart.html?pic=31.jpg&price=214&count=1">放入购物车</a>
+                </p>
+            </div>
+            <div class="product_box no_margin_right">
+                <a href="productdetail.html?pic=32.jpg&price=214"><img src="images/product/32.jpg" alt="32情人节蛋糕" /></a>
+                <h3>情人节蛋糕32</h3>
+                <p class="product_price">￥214</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=32.jpg&price=214">详情</a>
+                    <a href="shoppingcart.html?pic=32.jpg&price=214&count=1">放入购物车</a>
+                </p>
+            </div>
+        </div>
+        <div id="div_4" class="pagelist" style="display:none">
+            <div class="product_box">
+                <a href="productdetail.html?pic=17.jpg&price=360"><img src="images/product/17.jpg" alt="生日蛋糕17" /></a>
+                <h3>生日蛋糕17</h3>
+                <p class="product_price">￥360</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=17.jpg&price=360">详情</a>
+                    <a href="shoppingcart.html?pic=17.jpg&price=360&count=1">放入购物车</a>
+                </p>
+            </div>
+            <div class="product_box">
+                <a href="productdetail.html?pic=18.jpg&price=360"><img src="images/product/18.jpg" alt="生日蛋糕18" /></a>
+                <h3>生日蛋糕18</h3>
+                <p class="product_price">￥360</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=18.jpg&price=360">详情</a>
+                    <a href="shoppingcart.html?pic=18.jpg&price=360&count=1">放入购物车</a>
+                </p>
+            </div>
+            <div class="product_box">
+                <a href="productdetail.html?pic=19.jpg&price=360"><img src="images/product/19.jpg" alt="生日蛋糕19" /></a>
+                <h3>生日蛋糕19</h3>
+                <p class="product_price">￥360</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=19.jpg&price=360">详情</a>
+                    <a href="shoppingcart.html?pic=19.jpg&price=360&count=1">放入购物车</a>
+                </p>
+            </div>
+            <div class="product_box no_margin_right">
+                <a href="productdetail.html?pic=20.jpg&price=360"><img src="images/product/20.jpg" alt="生日蛋糕20" /></a>
+                <h3>生日蛋糕20</h3>
+                <p class="product_price">￥360</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=20.jpg&price=360">详情</a>
+                    <a href="shoppingcart.html?pic=20.jpg&price=360&count=1">放入购物车</a>
+                </p>
+            </div>
+
+            <div class="product_box">
+                <a href="productdetail.html?pic=21.jpg&price=360"><img src="images/product/21.jpg" alt="生日蛋糕21" /></a>
+                <h3>生日蛋糕21</h3>
+                <p class="product_price">￥360</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=21.jpg&price=360">详情</a>
+                    <a href="shoppingcart.html?pic=21.jpg&price=360&count=1">放入购物车</a>
+                </p>
+            </div>
+            <div class="product_box">
+                <a href="productdetail.html?pic=22.jpg&price=360"><img src="images/product/22.jpg" alt="生日蛋糕22" /></a>
+                <h3>生日蛋糕22</h3>
+                <p class="product_price">￥360</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=22.jpg&price=360">详情</a>
+                    <a href="shoppingcart.html?pic=22.jpg&price=360&count=1">放入购物车</a>
+                </p>
+            </div>
+            <div class="product_box">
+                <a href="productdetail.html?pic=23.jpg&price=360"><img src="images/product/23.jpg" alt="生日蛋糕23" /></a>
+                <h3>生日蛋糕23</h3>
+                <p class="product_price">￥360</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=23.jpg">详情</a>
+                    <a href="shoppingcart.html?pic=23.jpg&price=360&count=1">放入购物车</a>
+                </p>
+            </div>
+            <div class="product_box no_margin_right">
+                <a href="productdetail.html?pic=24.jpg&price=360"><img src="images/product/24.jpg" alt="生日蛋糕24" /></a>
+                <h3>生日蛋糕24</h3>
+                <p class="product_price">￥360</p>
+                <p class="add_to_cart">
+                    <a href="productdetail.html?pic=24.jpg&price=360">详情</a>
+                    <a href="shoppingcart.html?pic=24.jpg&price=360&count=1">放入购物车</a>
+                </p>
+            </div>
+        </div>
+        <div class="blank_box">
+        	<a href="#" class="button pagelist" id="page1">第一页</a>
+            <a href="#" class="button pagelist" id="page2">第二页</a>
+            <a href="#" class="button pagelist" id="page3">第三页</a>
+            <a href="#" class="button pagelist" id="page4">第四页</a>
+        </div>
+        <div class="cleaner h20"></div>
+
+    </div>
+    <div class="cleaner"></div>
+</div> <!-- END of main -->
+</div> <!-- END of main wrapper -->
+
+<div id="footer_wrapper">
+<div id="footer">
+	<div class="footer_left">
+    	<a href="#"><img src="images/paypal-straight.png" alt="Paypal" /></a>
+        <a href="#"><img src="images/mastercard-straight.png" alt="Master" /></a>
+        <a href="#"><img src="images/visa-straight.png" alt="Visa" /></a>
+    </div>
+	<div class="footer_right">
+        <p><a href="index.html">主页</a> | <a href="products.html">爱得产品</a> | <a href="about.html">关于爱得</a>  | <a href="shoppingcart.html">购物车</a> | <a href="checkout.html">收银台</a> | <a href="contact.html">联系我们</a></p>
+        <p>Copyright &copy; 2014 <a href="#">爱德欧式蛋糕</a></p>
+	</div>
+    <div class="cleaner"></div>
+</div> <!-- END of footer -->
+</div> <!-- END of footer wrapper -->
+</div>
+
+</body>
+
+</html>

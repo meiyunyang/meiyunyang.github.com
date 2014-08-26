@@ -1,0 +1,26 @@
+body{font-family: "微软雅黑",Verdana, Geneva, sans-serif; }
+#logo{margin:40px auto auto 125px;width:200px;height:100px;border-radius:15px;}
+#to-top { position:fixed; z-index:50; bottom:3px; left:1060px; cursor:pointer; width:50px; height:50px;
+    background:url(../images/top.gif) no-repeat left top; display:none; _display:none!important; }
+*html #to-top { position:absolute; left:expression(eval(document.documentElement.scrollLeft+1060));
+    top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-50)); }
+#to-top:hover { background:url(../images/top.gif) no-repeat left bottom }
+.right-sidebar{ position:absolute; right:80px; top:10px; width:180px; z-index:14}
+#choose-skin { margin-bottom:5px; float:left;list-style-type:none;}
+#choose-skin li{ float:left; margin:0 3px; width:16px; height:16px; border:3px solid #fff; text-indent:-9999px; cursor:pointer}
+#choose-skin li.cur{ border:3px solid #804000; background-image: url(../images/ok.png); background-repeat: no-repeat; background-position:  top center;}
+#choose-skin li.skin1{ background-color:#9ED6F1}
+#choose-skin li.skin2{ background-color:#f4f2e3;}
+#choose-skin li.skin3{ background-color:#E0E0E0}
+#choose-skin li.skin4{ background-color:#FAFAFA}
+#choose-skin li.skin5{ background-color:#000;}
+
+
+#nav {position:absolute; top:230px;left:180px; width:250px; z-index:30}
+.nav-container { position: relative; height: 50px; padding-left: 20px;list-style-type:none; }
+.nav-container li{width: 50px; position: absolute; bottom: 0; text-align: center; z-index: 30; }
+.nav-container a span { display: none; position:relative; width:100px;font-weight:bold ;font-size:14px; text-align:left; padding-left: 25px; color:#1C5F8C}
+.nav-container img { margin: 5px 10px 0; width: 100%; }
+
+
+

@@ -1,0 +1,11 @@
+/*book.html*/
+#book{ margin:-47px 0 -30px -105px; height:auto; background:#F5F0B6;}
+#main #book h2{ height:39px; line-height:39px; text-shadow:none; margin:0; padding:45px 0 0 105px; background:url(../images/bookshelftop.jpg) no-repeat left top; color:#000!important}
+#book ul{width:100%;height:auto;padding:0 0 0 40px;background:url(../images/bookshelfmiddle.jpg) repeat-y left top;}
+#book ul li{float:left; width:110px;height:160px;line-height:160px;vertical-align:bottom;margin:17px 14px 0 14px;padding-bottom:19px;}
+#book ul li a{display:block;height:160px;line-height:160px;}
+#book ul li img{ width:110px; height:160px;vertical-align:bottom; box-shadow:5px 0 6px #333;}
+
+
+#bottom {clear:left;position:relative;top:200px;margin:0px auto;width:500px;padding-left:23px; height:40px; padding-top:20px; overflow:hidden;
+    color:#1C5F8C;text-align:center; line-height:40px;font-size:16px;}
