@@ -1,0 +1,78 @@
+/* CSS Document */
+/* Clear Fix */
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix{display:inline-block;}
+* html .clearfix{height:1%;}
+/* Hide from IE Mac */
+.clearfix {display:block;}
+
+body{
+	background:#f4f2e3 url(image/bg_yellow.png) repeat-y top center;
+}
+#main{ 
+	position:relative;
+	margin: 80px auto;
+	/*top:50px;
+	left:50px;*/
+	width:360px;
+	height:580px;
+	border-top:solid 35px;
+	border-bottom:solid 35px;
+	border-left:solid 10px;
+	border-right:solid 10px;
+	
+	border-top-left-radius:50px 60px;
+	border-top-right-radius:50px 60px;
+	border-bottom-left-radius:50px 60px;
+	border-bottom-right-radius:50px 60px;
+	background: #FFF url(image/bg2.png) center center no-repeat;
+}
+#main input{
+	display:inline;
+	width:80px;
+	height:35px;
+	margin:30px 0 0 30px;
+	border-radius:5px;	
+}
+#logo{
+/*	background:url(image/logo.png);*/
+	display:inline;
+	margin:0 0 0 70px;
+	font-size:60px;
+	font-weight:700;
+	color:rgb(255,128,64);
+}
+#scorewrapper{
+/*	position:absolute;*/	
+	margin:30px 15px 4px 0;	
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:32px;
+	text-indent:1em;
+}
+#numberwrapper{
+/*	position:absolute;*/
+	position:relative;	
+	top:50px;
+	left:15px;
+	width:330px;
+	height:330px;
+	/*border:solid 1px;*/
+	margin:0 0 0 0;	
+	padding:3px 1px 1px 3px;
+	z-index:666;
+}
+.numDiv{
+	margin:3px 3px;
+	float:left;
+	width:75px;
+	height:75px;
+	/*border:solid 1px;*/
+	display:inline;
+	z-index:999;
+}
+
+#rule{
+    margin: 0 auto;
+    width:500px;
+    text-align: center;
+}

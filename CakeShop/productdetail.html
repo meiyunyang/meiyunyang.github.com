@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>爱得欧式蛋糕</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" href="css/orman.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+
+<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/ddsmoothmenu.js"></script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "menu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+function clearText(field)
+{
+    if (field.defaultValue == field.value) field.value = '';
+    else if (field.value == '') field.value = field.defaultValue;
+}
+$(document).ready(function(){
+    var args = getQueryStringArgs();
+    var picId = String(args["pic"]);
+    var html = '<a  rel="lightbox" href="images/product/' + picId.replace(".", "_l.") + '"><img src="images/product/' + picId + '" alt="'+picId+'" /></a>';
+    $("#pic_wrapper").html(html);
+
+    var $price = $("#price"),
+    $count = $("#count"),
+    $sum = $("#sum"),
+    $submit = $("#submit");
+    $count.attr("value",1);
+    $count.text(Number(1));
+    $price.text(Number(args["price"]));
+    $sum.text(Number(args["price"]));
+    var curHref = $submit.attr("href"),
+    newHref = curHref+'?pic='+args["pic"]+'&price='+args["price"]+'&count=1';
+    $submit.attr("href",newHref);
+
+    //数量变化
+    $count.change(function(){
+        var price = $price.text();
+        var count = $count.val();
+        $sum.text(price*count) ;
+        newHref = curHref+'?pic='+args["pic"]+'&price='+price+'&count='+count;
+        $submit.attr("href",newHref);
+        console.log(newHref);
+    })
+});
+
+function getQueryStringArgs() {
+    console.log(location.search);
+    var qs = (location.search.length > 0 ? location.search.substring(1) : ""),
+            args = {},
+            items = qs.length ? qs.split("&") : [],
+            item = null,
+            name = null,
+            value = null,
+            i = 0,
+            len = items.length;
+    for (i = 0; i < len; i++) {
+        item = items[i].split("=");
+        name = decodeURIComponent(item[0]);
+        value = decodeURIComponent(item[1]);
+        if (name.length)
+            args[name] = value;
+    }
+    return args;
+};
+</script>
+
+<link rel="stylesheet" href="css/slimbox2.css" type="text/css" media="screen" />
+<script type="text/JavaScript" src="js/slimbox2.js"></script>
+</head>
+
+<body>
+
+<div id="wrapper_sp">
+<div id="header_wsp">
+	<div id="header" class="header_subpage">
+    	<div id="site_title"><a href="http://www.mycodes.net/" title="源码之家">源码之家</a></div>
+        <div id="menu" class="ddsmoothmenu">
+            <ul>
+                <li><a href="index.html">主页</a></li>
+                <li><a href="products.html">爱得产品</a>
+                    <ul>
+                        <li><a href="marriagecake.html" >婚礼蛋糕</a></li>
+                        <li><a href="childrencake.html" >儿童生日蛋糕</a></li>
+                        <li><a href="birthdaycake.html" >生日蛋糕</a></li>
+                        <li><a href="valentine's cake.html" >情人节蛋糕</a></li>
+                    </ul>
+                </li>
+                <li><a href="checkout.html">收银台</a></li>
+                <li><a href="shoppingcart.html">购物车</a></li>
+                <li><a href="about.html">关于爱得</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+            <div id="search">
+                <form action="#" method="get">
+                  	<input type="text" value="生日蛋糕" name="keyword" id="keyword" title="keyword"
+                  			onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
+                  	<input type="submit" name="Search" value="" alt="Search" id="searchbutton" title="Search" class="sub_btn" />
+                </form>
+            </div>
+            <br style="clear: left" />
+        </div> 
+        <a href="#"   class="site_repeat" ><img src="images/top_repeat.png" title="#/"  /></a><!-- end of templatemo_menu -->
+       
+    </div> <!-- END of header -->
+</div> <!-- END of header wrapper -->
+<div id="main_wrapper">
+<div id="main">
+	<div id="sidebar" class="left">
+    	<div class="sidebar_box"><span class="bottom"></span>
+            <h3>产品分类</h3>
+            <div class="content">
+                <ul class="sidebar_list">
+                    <li><a href="#">婚礼蛋糕系列</a></li>
+                    <li><a href="#">生日蛋糕系列</a></li>
+                    <li><a href="#">会议蛋糕系列</a></li>
+                    <li><a href="#">精致礼盒系列</a></li>
+                    <li><a href="#">伴手礼系列</a></li>
+                    <li><a href="#">甜品系列</a></li>
+                    <li><a href="#">面包系列</a></li>
+                    <li><a href="#">月饼系列</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sidebar_box"><span class="bottom"></span>
+            <h3>每周特惠</h3>
+            <div class="content special">
+                <img src="images/templatemo_image_01.jpg" alt="Flowers" />
+                <a href="#">精美儿童生日蛋糕</a>
+                <p>
+                    <span class="price normal_price">￥160</span>&nbsp;&nbsp;
+                    <span class="price special_price">￥100</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="content" class="right">
+      	<h2>产品详情</h2>
+        <div class="content_half left" id="pic_wrapper">
+        	<a  rel="lightbox" href="images/product/01_l.jpg"><img src="images/product/01.jpg" alt="儿童蛋糕01" /></a>
+        </div>
+            <div class="content_half right">
+                <table>
+                    <tr>
+                        <td width="130">价格（元）：</td>
+                        <td width="84" id="price">0</td>
+                    </tr>
+                    <tr>
+                        <td>库存：</td>
+                        <td><strong>9999</strong></td>
+                    </tr>
+                    <tr><td>数量：</td><td><input type="text" value="1" size="6" maxlength="2" id="count"/></td></tr>
+                    <tr><td>金额（元）：</td><td id="sum">0</td></tr>
+                </table>
+                <div class="cleaner h20"></div>
+                <a href="shoppingcart.html" class="button" id="submit">放入购物车</a>
+			</div>
+            <div class="cleaner h40"></div>
+            
+            <h4>产品介绍</h4>
+            <p> 爱得，从欧式文化中取材，再造美食文化的精致内涵。我们引进国外先进的生产管理技术，聘请技艺纯熟的食品调理大师，精选上等原料，细细精致成各项美食。我们让每一项独具特色的产品，成为生活中最值得回味的记忆！爱得食品，是“礼的代言者”，在温馨的送往迎来之间，展现您精致合礼的品味风范，让您与您的朋友们联结更紧密。</p>
+            <div class="cleaner h40"></div>
+
+    </div>
+    <div class="cleaner"></div>
+</div> <!-- END of main -->
+</div> <!-- END of main wrapper -->
+
+<div id="footer_wrapper">
+<div id="footer">
+	<div class="footer_left">
+    	<a href="#"><img src="images/paypal-straight.png" alt="Paypal" /></a>
+        <a href="#"><img src="images/mastercard-straight.png" alt="Master" /></a>
+        <a href="#"><img src="images/visa-straight.png" alt="Visa" /></a>
+    </div>
+	<div class="footer_right">
+        <p><a href="index.html">主页</a> | <a href="products.html">爱得产品</a> | <a href="about.html">关于爱得</a>  | <a href="shoppingcart.html">购物车</a> | <a href="checkout.html">收银台</a> | <a href="contact.html">联系我们</a></p>
+        <p>Copyright &copy; 2014 <a href="#">爱德欧式蛋糕</a></p>
+	</div>
+    <div class="cleaner"></div>
+</div> <!-- END of footer -->
+</div> <!-- END of footer wrapper -->
+</div>
+
+</body>
+
+</html>
