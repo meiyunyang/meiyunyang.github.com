@@ -53,6 +53,7 @@ body{
 /*	position:absolute;*/
 	position:relative;	
 	top:50px;
+	_top:40px;
 	left:15px;
 	width:330px;
 	height:330px;
